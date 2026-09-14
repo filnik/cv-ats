@@ -1,0 +1,143 @@
+{
+  "$comment": "FROZEN NAMING CONTRACT for the CV and ATS knowledge base. Ids and paths are fixed here so that parallel editing agents cannot invent divergent names. Each entry also carries scope and excludes: this domain is one narrow subject cut nineteen ways, so the boundary between neighbouring documents is the thing most likely to be violated. If you are writing a document and the material you have belongs to a neighbour's scope, link to it — do not restate it. Mirrors the contract used by the sibling knowledge bases at ../kmp/ and ../react-native/.",
+  "created": "2026-08-18",
+  "line_cap": 950,
+
+  "documents": [
+    {
+      "id": "gd-01",
+      "path": "guides/01-how-screening-actually-works.md",
+      "title": "How Resume Screening Actually Works",
+      "scope": "The mental model the rest of the KB depends on. Distinguishes passing through an ATS from being rejected by one. Establishes the four real gates in order: knockout questions, structured-field visibility, recruiter search, AI ranking. Arbitrates the central conflict in the source literature and states which side the evidence is on. Covers the volume reality — applications per hire, recruiter load — because it reframes everything downstream.",
+      "excludes": "Per-vendor mechanics (ref-ats-catalog). The myth-by-myth verdict table (ref-evidence-and-myths). Formatting rules (ref-parsing-rules)."
+    },
+    {
+      "id": "gd-02",
+      "path": "guides/02-resume-anatomy.md",
+      "title": "Resume Anatomy: Sections, Order and Length",
+      "scope": "Section by section: what each one is for, what goes in it, what order they go in, and how long the document should be. Covers the section-order disagreement among the source authors and resolves it by market and seniority. Education placement. What to delete entirely.",
+      "excludes": "The top-third block specifically (gd-03). Bullet writing (gd-04). Market-by-market convention tables including photo and personal data (ref-market-conventions). Parser-level heading rules (ref-parsing-rules)."
+    },
+    {
+      "id": "gd-03",
+      "path": "guides/03-the-top-third.md",
+      "title": "The Top Third: Headline, Summary and Value Proposition",
+      "scope": "The single most valuable area of the document. Unifies four names for the same object — branded headline, Ogilvy-style headline, branding statement, value proposition — into one treatment. Covers the summary-versus-bullets-versus-headline disagreement, the contact block, and what evidence exists about where attention lands.",
+      "excludes": "Contact-field parsing mechanics (ref-parsing-rules). Full section ordering (gd-02). LinkedIn headline (gd-07)."
+    },
+    {
+      "id": "gd-04",
+      "path": "guides/04-bullets-and-evidence.md",
+      "title": "Bullets: Writing Evidence a Machine and a Human Both Accept",
+      "scope": "X-Y-Z, CAR, CART, the four-step LEG formula and Action-plus-Tool-plus-Metric are five names for one formula: say so in a comparison table and teach it once. The catalogue of metric types. Tense and voice rules. Why an LLM ranking layer rewards evidence and punishes unfalsifiable adjectives. Short before/after pairs inline.",
+      "excludes": "What to do when you have no numbers (pat-quantifying-without-numbers). The verb list itself (ref-action-verbs). Full multi-bullet rewrites (examples/)."
+    },
+    {
+      "id": "gd-05",
+      "path": "guides/05-keywords-and-tailoring.md",
+      "title": "Keywords, Search and Tailoring",
+      "scope": "How recruiters actually retrieve candidates: Boolean search, semantic and embedding matching, and what the hybrid means. The three-step method for reading a job description. Acronym handling. The rule of three placements rather than a density target. The skills-block-versus-skills-in-context question and its mechanical resolution. The tailoring workflow.",
+      "excludes": "The match-rate score debunk in table form (ref-evidence-and-myths). Company-specific tailoring for named employers (pat-company-tailoring). Skill extraction on LinkedIn (gd-07)."
+    },
+    {
+      "id": "gd-06",
+      "path": "guides/06-cover-letters.md",
+      "title": "Cover Letters",
+      "scope": "When one is read and when it is not, on the evidence. The structure that works. Tailoring as the entire effect. The AI-ghostwriting line and the phrases that flag as generated. Handling a gap or a missing requirement in the letter rather than the resume.",
+      "excludes": "Gap strategy on the resume itself (pat-career-gaps-and-changes). Full letter examples (examples/)."
+    },
+    {
+      "id": "gd-07",
+      "path": "guides/07-linkedin.md",
+      "title": "LinkedIn as a Parallel Channel",
+      "scope": "Why sourcing now beats applying. The documented Skills filter and its four sources. Headline, About and Experience as skill-extraction surfaces. Location as a hard gate. Endorsements and what is actually known. Open to Work, both settings. Identity verification. Easy Apply versus the company site. What changed in 2025 and 2026.",
+      "excludes": "Resume keyword strategy (gd-05). Referral mechanics as a channel statistic (gd-01)."
+    },
+
+    {
+      "id": "pat-two-document-strategy",
+      "path": "patterns/two-document-strategy.md",
+      "title": "The Two-Document Strategy",
+      "scope": "The resolution of the design-versus-parseability conflict: a plain, single-column, parser-safe document for portals and a formatted one for humans who have already replied. When each is sent, how they are kept in sync, and the trap of letting them diverge on facts.",
+      "excludes": "The parser rules that define what plain means (ref-parsing-rules). Market conventions for the formatted version (ref-market-conventions)."
+    },
+    {
+      "id": "pat-quantifying-without-numbers",
+      "path": "patterns/quantifying-without-numbers.md",
+      "title": "Quantifying When You Have No Numbers",
+      "scope": "The honest treatment of a case every source hand-waves. Scale, scope, frequency, duration, team size, breadth and counterfactual as substitutes for a percentage. How to recover numbers you never recorded. Where estimation is legitimate and where it becomes a claim you cannot defend in an interview.",
+      "excludes": "The bullet formula itself (gd-04). The ongoing habit of recording achievements (pat-brag-document)."
+    },
+    {
+      "id": "pat-seniority-ladder",
+      "path": "patterns/seniority-ladder.md",
+      "title": "What Changes by Seniority",
+      "scope": "A junior resume and a staff resume are different documents, not the same document at different lengths. What each level must demonstrate: junior, mid, senior, staff or principal, and engineering manager. The signals reviewers look for at each rung, and the most common mispositioning at each.",
+      "excludes": "Section order (gd-02). Company-specific expectations (pat-company-tailoring)."
+    },
+    {
+      "id": "pat-career-gaps-and-changes",
+      "path": "patterns/career-gaps-and-changes.md",
+      "title": "Gaps, Career Changes and Non-Linear Histories",
+      "scope": "Employment gaps, career changes, contract and agency stacking, overqualification, and returning after a break. Why the functional resume fails both the parser and the reader. What to state and what to leave for the conversation.",
+      "excludes": "Cover-letter handling of the same material (gd-06). Date formatting mechanics (ref-parsing-rules)."
+    },
+    {
+      "id": "pat-company-tailoring",
+      "path": "patterns/company-tailoring.md",
+      "title": "Tailoring to a Specific Employer",
+      "scope": "Reading a company's stated values and hiring rubric off its public material, and what that legitimately changes in the document. Worked treatment for the large tech employers whose rubrics are published. How far this can be taken before it becomes mimicry.",
+      "excludes": "General job-description keyword extraction (gd-05). Seniority expectations (pat-seniority-ladder)."
+    },
+    {
+      "id": "pat-brag-document",
+      "path": "patterns/brag-document.md",
+      "title": "The Brag Document",
+      "scope": "The habit that makes every future resume cheap to write: recording outcomes as they happen, with the numbers attached, on a schedule. What to capture, where, and how to turn the record into bullets later. Also the input to performance reviews and interview stories.",
+      "excludes": "Bullet phrasing (gd-04). Recovering numbers retroactively (pat-quantifying-without-numbers)."
+    },
+
+    {
+      "id": "ref-parsing-rules",
+      "path": "references/parsing-rules.md",
+      "title": "Parsing Rules: What Breaks a Resume Parser",
+      "scope": "The objective, testable core of the KB, built on Textkernel's published resume quality codes organised by severity, plus the reproducible mechanics: the DOCX header XML separation, the PDF ToUnicode ligature failure, icon fonts in the Private Use Area, absent text layers. Dates, job title and company disambiguation, contact block, headings, columns, tables, file format by generator, tagged PDF, file naming.",
+      "excludes": "Which vendor uses which parser and what each ATS does with the output (ref-ats-catalog). How to run the tests (ref-verification-toolkit). Content advice of any kind."
+    },
+    {
+      "id": "ref-ats-catalog",
+      "path": "references/ats-catalog.md",
+      "title": "ATS Catalogue: What Each System Actually Does",
+      "scope": "Vendor by vendor, from primary documentation: market position, what happens to an uploaded file, whether fields must be re-entered by hand, whether and how auto-rejection is configured, and what the AI layer does. Workday, Greenhouse, Lever, Ashby, Oracle, iCIMS, SmartRecruiters, SuccessFactors, and the European stack. The underlying parsing engines and who licenses them.",
+      "excludes": "Formatting rules derived from parser behaviour (ref-parsing-rules). The screening mental model (gd-01)."
+    },
+    {
+      "id": "ref-evidence-and-myths",
+      "path": "references/evidence-and-myths.md",
+      "title": "Evidence and Myths: A Claim-by-Claim Audit",
+      "scope": "Every contested claim with a verdict, its source, its sample and its year. The traced origins of the field's load-bearing myths. The register of statistics that circulate with no locatable source and must never be repeated. The honest statement of where the positive evidence is thinner than the debunkings.",
+      "excludes": "Operational advice — this document judges claims, it does not teach technique. Where a myth has an actionable replacement, link to the guide rather than restating it."
+    },
+    {
+      "id": "ref-market-conventions",
+      "path": "references/market-conventions.md",
+      "title": "Market Conventions and Legal Context",
+      "scope": "Where the source literature's apparent disagreements are really two markets: length, photo, personal details, document naming. Country tables for the US, UK and Ireland, DACH, Italy, France and Spain, the Nordics and Australia. The photograph evidence and its gender asymmetry. The two legal myths to kill. The regulation that governs automated screening and what it gives a candidate.",
+      "excludes": "Parsing consequences of a photo or a personal-data block (ref-parsing-rules). Per-vendor compliance features (ref-ats-catalog)."
+    },
+    {
+      "id": "ref-verification-toolkit",
+      "path": "references/verification-toolkit.md",
+      "title": "Verification Toolkit: Testing a Resume Before Sending It",
+      "scope": "The free command-line check that beats every paid tool, with its acceptance criteria as a list a reader can run. The no-terminal equivalents. Free real-parser tests. The commercial checkers with current prices and an honest statement of what each actually measures. The recommended zero-cost stack.",
+      "excludes": "The rules the tests are checking for (ref-parsing-rules). Keyword gap analysis as a technique (gd-05)."
+    },
+    {
+      "id": "ref-action-verbs",
+      "path": "references/action-verbs.md",
+      "title": "Action Verbs and Banned Phrases",
+      "scope": "The unified verb list by function, deduplicated across the source authors. The phrases that recruiters and LLM screeners both discount, including the AI-generated tells. The words that appear in recruiters' Boolean NOT clauses and must never be on a resume or a profile.",
+      "excludes": "How to construct the bullet around the verb (gd-04)."
+    }
+  ]
+}

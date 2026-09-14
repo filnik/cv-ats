@@ -1,0 +1,10 @@
+{
+  "name": "cv-ats",
+  "displayName": "CV and ATS Knowledge Base",
+  "version": "1.0.0",
+  "description": "A knowledge base an agent can route through for writing resumes that convert and getting through automated screening — parsing mechanics, ATS behaviour vendor by vendor, keywords and tailoring, cover letters, LinkedIn, market conventions, and an audit of which statistics in this field are fabricated.",
+  "author": {
+    "name": "Filippo De Pretto"
+  },
+  "keywords": ["resume", "cv", "ats", "applicant-tracking-system", "job-search", "recruiting", "linkedin"]
+}

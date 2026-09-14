@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Resume — ATS-safe template</title>
+<style>
+/* ATS-safe resume template.
+   Every choice here is a rule from references/parsing-rules.md, and the comments say which.
+
+   Deliberately absent, each for a documented reason:
+     - no <img>            an image contributes nothing to the parsed record and costs parse time
+     - no <table>          cell content extracts in an order that depends on the extractor
+     - no grid or flex on content   a multi-column layout is a fatal-severity parser finding
+     - no icon fonts       their glyphs live in the Unicode Private Use Area, which has no defined
+                           meaning, and they sit next to the contact details
+     - no skill bars       vector graphics extract as nothing, and they say nothing to a human either
+     - no CSS ::before content carrying text   generated content is not in the document text layer
+
+   Print with Export/Save as PDF, never Print to PDF: the print path strips structure tags. */
+
+@page { size: A4; margin: 14mm 14mm 12mm 14mm; }
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  /* System-standard, widely embedded, no exotic OpenType features. */
+  font-family: Calibri, Carlito, "Helvetica Neue", Arial, sans-serif;
+  font-size: 10.5pt;      /* inside the 10-12pt range every source agrees on */
+  line-height: 1.4;
+  color: #111;
+  /* Ligatures off: a subset font with a bad character map turns "certification" into
+     "certi cation" in the extracted text, silently losing a term recruiters filter on. */
+  font-variant-ligatures: none;
+  -webkit-font-feature-settings: "liga" 0, "clig" 0;
+  font-feature-settings: "liga" 0, "clig" 0;
+}
+
+.page { max-width: 182mm; margin: 0 auto; }
+
+/* --- header: contact block is the FIRST TEXT OF THE DOCUMENT BODY ---------
+   Never a <header> element positioned by CSS, never a running head, never a footer.
+   In DOCX the equivalent lives in a separate XML part that body extraction never reads. */
+h1 { font-size: 17pt; font-weight: 700; letter-spacing: 0; margin-bottom: 2pt; }
+.title { font-size: 11.5pt; font-weight: 600; margin-bottom: 3pt; }
+.contact { font-size: 10pt; }
+.contact a { color: inherit; text-decoration: none; }
+
+/* --- sections ------------------------------------------------------------
+   Canonical headings only, each on its own line directly above its content.
+   No decorative characters: they break the string match that locates the section. */
+h2 {
+  font-size: 11pt;
+  font-weight: 700;
+  text-transform: uppercase;   /* case only — never letter-spacing, which inserts real spaces */
+  border-bottom: 1px solid #999;
+  padding-bottom: 2pt;
+  margin: 12pt 0 6pt;
+  page-break-after: avoid;
+}
+
+p { margin-bottom: 5pt; }
+
+/* --- one role ------------------------------------------------------------
+   Three lines in this order, each on its own line:
+     job title / company and city / date range
+   The date range is never split across lines: that is a fatal parser finding. */
+.role { margin-bottom: 9pt; page-break-inside: avoid; }
+.role h3 { font-size: 10.5pt; font-weight: 700; }
+.company { font-size: 10.5pt; }
+.dates   { font-size: 10pt; color: #333; margin-bottom: 3pt; }
+
+ul { margin: 0 0 0 15pt; }
+li { margin-bottom: 2.5pt; }
+
+.skills p { margin-bottom: 3pt; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- CONTACT: one email, one phone with international prefix, one location as City, Country.
+       The LinkedIn URL is visible literal text, not an icon carrying a hyperlink: a URL that
+       exists only as a link annotation is not in the text layer. -->
+  <h1>FIRSTNAME LASTNAME</h1>
+  <p class="title">Target Job Title</p>
+  <p class="contact">
+    name@example.com &nbsp;|&nbsp; +39 340 000 0000 &nbsp;|&nbsp; City, Country<br>
+    linkedin.com/in/yourhandle &nbsp;|&nbsp; github.com/yourhandle
+  </p>
+  <!-- Optional and often worth it: it answers a knockout question before it is asked. -->
+  <p class="contact">Locations: City, Country | Remote | Open to relocation within the EU</p>
+
+  <h2>Summary</h2>
+  <p>
+    Two to four lines. Years, domain, and the two or three outcomes that distinguish you. Name the
+    target role. No objective, no self-description, no adjectives you cannot evidence below.
+  </p>
+
+  <h2>Skills</h2>
+  <div class="skills">
+    <!-- Plain comma-separated text, category label on the SAME line as its items: a label alone on
+         a line risks being read as a section heading. Twelve to twenty hard skills. Every one of
+         them must also appear inside a dated bullet below, so the parser can attribute years and
+         recency to it. -->
+    <p><strong>Languages:</strong> Kotlin, Java, Python, TypeScript</p>
+    <p><strong>Frameworks:</strong> Jetpack Compose, Spring Boot, React</p>
+    <p><strong>Infrastructure:</strong> AWS, Docker, Kubernetes, Terraform</p>
+    <p><strong>Practices:</strong> Continuous Integration/Continuous Delivery (CI/CD), Test-Driven Development, Observability</p>
+  </div>
+
+  <h2>Professional Experience</h2>
+
+  <div class="role">
+    <h3>Senior Software Engineer</h3>
+    <p class="company">Company Name — City, Country</p>
+    <p class="dates">Mar 2021 – Present</p>
+    <ul>
+      <li>Outcome first, then the method: what changed, by how much, and how. Open with a verb.</li>
+      <li>Every bullet carries evidence a reader could check. No unfalsifiable adjectives.</li>
+      <li>Name the technology inside the bullet that proves it, not only in the skills block.</li>
+    </ul>
+  </div>
+
+  <div class="role">
+    <!-- A promotion within one employer gets its own dated entry, not a sub-bullet:
+         stacked undated roles trigger the multiple-current-positions finding, and separate
+         entries are what make progression legible to a recruiter. -->
+    <h3>Software Engineer</h3>
+    <p class="company">Company Name — City, Country</p>
+    <p class="dates">Jun 2018 – Feb 2021</p>
+    <ul>
+      <li>Roles older than roughly ten to fifteen years condense to a single line each.</li>
+    </ul>
+  </div>
+
+  <h2>Education</h2>
+  <div class="role">
+    <h3>Degree Name</h3>
+    <p class="company">Institution — City, Country</p>
+    <!-- Graduation YEAR only, never a range: a range in the education section leaks into the
+         employment timeline and corrupts the computed years of experience. -->
+    <p class="dates">2018</p>
+  </div>
+
+  <h2>Certifications</h2>
+  <!-- Its own heading, never merged with Education: merging makes a parser file certifications
+       as degrees. Write credential names verbatim — they are exact-match islands. -->
+  <p>Certification Name, Issuing Body, 2024</p>
+
+</div>
+</body>
+</html>
