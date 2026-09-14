@@ -4,10 +4,12 @@ title: "LinkedIn as a Parallel Channel"
 category: guides
 summary: Why being sourced beats applying, and the documented filters — Skills, location, spotlights — that decide whether you are findable at all
 read_when:
-  - "recruiters never find me on LinkedIn" / "I get zero recruiter messages"
+  - "recruiters never find me on LinkedIn"
+  - "I get zero recruiter messages"
   - "what should my LinkedIn headline say"
   - "should I turn on Open to Work — will my boss see it"
-  - "do endorsements actually matter" / "how many endorsements do I need"
+  - "do endorsements actually matter"
+  - "how many endorsements do I need"
   - "is Easy Apply worth it or should I apply on the company site"
   - "should my LinkedIn just be a copy of my resume"
   - "does posting on LinkedIn help me get found by recruiters"

@@ -4,10 +4,13 @@ title: "Market Conventions and Legal Context"
 category: references
 summary: Length, photographs, personal details and automated-screening law, resolved by market instead of argued as if one answer fits everyone
 read_when:
-  - "should my resume be one page or two" / "someone told me three pages is fine and someone else said never"
-  - "do I put a photo on my CV" / "German companies want a photo, right"
+  - "should my resume be one page or two"
+  - "someone told me three pages is fine and someone else said never"
+  - "do I put a photo on my CV"
+  - "German companies want a photo, right"
   - "is it illegal to put your date of birth on a US resume"
-  - "do I need the GDPR consent clause on my CV" / "every Italian template has that privacy line"
+  - "do I need the GDPR consent clause on my CV"
+  - "every Italian template has that privacy line"
   - "they asked if I need visa sponsorship and I didn't know what to put"
   - "can a company legally reject me with AI without a human looking"
   - "I'm applying from Italy to a US company and I don't know what they expect"

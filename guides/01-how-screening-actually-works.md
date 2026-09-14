@@ -4,7 +4,8 @@ title: "How Resume Screening Actually Works"
 category: guides
 summary: The working model — passing through an ATS is not being rejected by one, and four gates decide what happens to your application
 read_when:
-  - "did a robot reject my resume" / "was my application auto-rejected before a human saw it"
+  - "did a robot reject my resume"
+  - "was my application auto-rejected before a human saw it"
   - "my resume never gets past the first screen"
   - "I applied to 200 jobs and heard nothing back"
   - "does anyone actually read my CV or is it all automated"

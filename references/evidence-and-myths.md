@@ -9,7 +9,8 @@ read_when:
   - "should I put white keywords in my resume so the scanner picks them up"
   - "does adding 'ignore all previous instructions' to a resume actually work"
   - "someone told me I need an 80% match score to get through — is that real"
-  - "where did this statistic come from" / "is this resume advice just made up"
+  - "where did this statistic come from"
+  - "is this resume advice just made up"
 not_this_file:
   - "guides/01-how-screening-actually-works.md — what actually happens to your application, rather than what is false about the popular account of it"
   - "references/parsing-rules.md — the formatting rules themselves, each with its mechanism; this document only judges the claims"

@@ -4,12 +4,16 @@ title: "ATS Catalogue: What Each System Actually Does"
 category: references
 summary: Vendor by vendor from primary documentation — what happens to your file, what must be retyped, what can auto-reject, what the AI does
 read_when:
-  - "why does Workday make me retype my whole resume" / "the Workday form filled in nothing"
-  - "what ATS does this company use" / "how do I tell from the application URL"
-  - "did a robot reject me" / "can Greenhouse auto-reject my application"
+  - "why does Workday make me retype my whole resume"
+  - "the Workday form filled in nothing"
+  - "what ATS does this company use"
+  - "how do I tell from the application URL"
+  - "did a robot reject me"
+  - "can Greenhouse auto-reject my application"
   - "what does the AI in the ATS actually do with my resume"
   - "is Taleo different from the newer Oracle system"
-  - "which parser does SuccessFactors use" / "who makes the resume parser behind this thing"
+  - "which parser does SuccessFactors use"
+  - "who makes the resume parser behind this thing"
 not_this_file:
   - "references/parsing-rules.md — the formatting rules that follow from how these parsers behave; that is the file you want if the question is about your document"
   - "guides/01-how-screening-actually-works.md — the four-gate mental model, if you want the model rather than the vendor detail"

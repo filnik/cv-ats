@@ -185,7 +185,15 @@ if (existsSync(readmePath)) {
     return `### ${heading}\n\n| File | Description | Stale | Lines |\n|---|---|---|---|\n` +
       rows.map(d => `| [${d.title}](${d.path}) | ${d.summary} | ${RISK[d.stale_risk] || '?'} | ${d.lines} |`).join('\n') + '\n\n'
   }
-  const generated = DIRS.map(d => table(d, d[0].toUpperCase() + d.slice(1))).join('') +
+  // The Stale column is three coloured dots and nothing else, so it needs its legend on the same
+  // page. resource-index.md carries one; README.md did not, which left a reader on the repo front
+  // page looking at a 🔴 beside the very document the README tells them to read first, with nothing
+  // to say it means "re-verify in November", not "this is rotten".
+  const legend = `**Stale risk:** 🔴 high — tied to vendor behaviour or a regulatory date, ` +
+    `re-verify every 90 days · 🟠 medium — every 180 days · 🟢 low — conceptual, re-verify when the ` +
+    `evidence base changes. Dates are in [\`resource-index.md\`](resource-index.md).\n\n`
+
+  const generated = legend + DIRS.map(d => table(d, d[0].toUpperCase() + d.slice(1))).join('') +
     `### Totals\n\n| Category | Files | Lines |\n|---|---|---|\n` +
     DIRS.map(d => `| ${d} | ${counts[d]} | ${docs.filter(x => x.path.startsWith(`${d}/`)).reduce((n, x) => n + x.lines, 0).toLocaleString()} |`).join('\n') +
     `\n| **Total** | **${docs.length}** | **${total.toLocaleString()}** |\n`

@@ -101,6 +101,107 @@ function parseFrontMatter(text) {
 }
 
 // ---------------------------------------------------------------------------
+// Strict YAML check on the front-matter block.
+//
+// parseFrontMatter above is deliberately minimal, and that is a hazard as much as a convenience: it
+// accepts lines no conforming YAML parser will. Thirteen of the nineteen documents once carried
+//
+//     - "did a robot reject my resume" / "was my application auto-rejected before a human saw it"
+//
+// which is invalid. A node that opens with a double-quoted scalar ends at the closing quote, and
+// nothing may follow it. The regex parser stripped the outer quotes and moved on; build-index.mjs
+// put quotes back when it printed the triggers, so the round trip came out lossless and
+// resource-index.md looked correct; and this gate reported Clean. GitHub, which uses libyaml,
+// refused to render the front-matter of two thirds of the knowledge base.
+//
+// The lesson generalises past the one bug: a tolerant parser in the gate means the gate certifies
+// its own dialect rather than the format it claims. This does not reimplement YAML. It rejects the
+// constructs the minimal parser silently accepts and a real parser does not.
+// ---------------------------------------------------------------------------
+
+// Length of the quoted scalar opening `s`, or -1 if the quote is never closed.
+function quotedScalarLength(s) {
+  const quote = s[0]
+  for (let i = 1; i < s.length; i++) {
+    if (quote === '"' && s[i] === '\\') { i++; continue }
+    if (s[i] !== quote) continue
+    if (quote === "'" && s[i + 1] === "'") { i++; continue }   // '' escapes a quote
+    return i + 1
+  }
+  return -1
+}
+
+const YAML_INDICATORS = new Set(['&', '*', '!', '|', '>', '%', '@', '`'])
+
+function checkScalar(relPath, lineNo, where, rawValue) {
+  const v = rawValue.trim()
+  if (!v || v === '[]') return
+
+  if (v[0] === '"' || v[0] === "'") {
+    const len = quotedScalarLength(v)
+    if (len === -1) {
+      err(relPath, `front-matter line ${lineNo}: ${where} opens with ${v[0]} and never closes it`)
+      return
+    }
+    const trailing = v.slice(len).trim()
+    if (trailing && !trailing.startsWith('#')) {
+      err(relPath, `front-matter line ${lineNo}: ${where} continues after the closing quote with ` +
+        `${JSON.stringify(trailing.slice(0, 48))} — a quoted scalar ends at its quote. ` +
+        `Two triggers joined by "/" belong on two lines.`)
+    }
+    return
+  }
+
+  if (v[0] === '[' || v[0] === '{') {
+    const open = v[0]
+    const close = open === '[' ? ']' : '}'
+    let depth = 0
+    for (const ch of v) {
+      if (ch === open) depth++
+      else if (ch === close) depth--
+    }
+    if (depth !== 0) err(relPath, `front-matter line ${lineNo}: ${where} has unbalanced ${open}${close}`)
+    return
+  }
+
+  if (YAML_INDICATORS.has(v[0])) {
+    err(relPath, `front-matter line ${lineNo}: ${where} is unquoted and starts with "${v[0]}", which YAML reads as an indicator — quote it`)
+  }
+  if (/:\s/.test(v)) {
+    err(relPath, `front-matter line ${lineNo}: ${where} is unquoted and contains ": ", which YAML reads as a mapping — quote it`)
+  }
+  if (v.includes(' #')) {
+    err(relPath, `front-matter line ${lineNo}: ${where} is unquoted and contains " #", which YAML reads as a comment — quote it`)
+  }
+}
+
+function checkFrontMatterYaml(relPath, text) {
+  if (!text.startsWith('---\n')) return
+  const end = text.indexOf('\n---\n', 4)
+  if (end === -1) return
+
+  text.slice(4, end).split('\n').forEach((raw, i) => {
+    const lineNo = i + 2                      // line 1 is the opening ---
+    if (!raw.trim() || raw.trim().startsWith('#')) return
+
+    if (/^[ ]*\t/.test(raw)) {
+      err(relPath, `front-matter line ${lineNo}: tab in the indentation — YAML forbids tabs`)
+      return
+    }
+
+    const listItem = raw.match(/^\s+-\s+(.*)$/)
+    if (listItem) { checkScalar(relPath, lineNo, 'list item', listItem[1]); return }
+
+    const kv = raw.match(/^([A-Za-z_][\w-]*):(?:[ \t]+(.*))?$/)
+    if (!kv) {
+      err(relPath, `front-matter line ${lineNo}: neither a key, a list item nor a comment: ${JSON.stringify(raw.slice(0, 48))}`)
+      return
+    }
+    if (kv[2] !== undefined) checkScalar(relPath, lineNo, `value of "${kv[1]}"`, kv[2])
+  })
+}
+
+// ---------------------------------------------------------------------------
 // Load the two contracts.
 // ---------------------------------------------------------------------------
 const lock = JSON.parse(readFileSync(join(ROOT, '.kb/facts.lock.json'), 'utf8'))
@@ -215,6 +316,8 @@ function checkDocument(relPath) {
   const text = readFileSync(abs, 'utf8')
   const lines = text.split('\n')
 
+  checkFrontMatterYaml(relPath, text)
+
   const fm = parseFrontMatter(text)
   if (!fm) {
     err(relPath, 'missing YAML front-matter')
@@ -244,8 +347,8 @@ function checkDocument(relPath) {
   for (const a of (Array.isArray(data.ats) ? data.ats : [])) {
     if (!VALID_ATS.has(a)) err(relPath, `unknown ats vendor "${a}" in front-matter`)
   }
-  if (Array.isArray(data.read_when) && data.read_when.length < 3) {
-    warn(relPath, `read_when has ${data.read_when.length} entries; the contract asks for 3-7`)
+  if (Array.isArray(data.read_when) && (data.read_when.length < 3 || data.read_when.length > 12)) {
+    warn(relPath, `read_when has ${data.read_when.length} entries; the contract asks for 3-12`)
   }
 
   // 2. manifest agreement
@@ -473,6 +576,15 @@ for (const dir of CONTENT_DIRS) {
     if (!name.endsWith('.md')) continue
     if (statSync(join(abs, name)).isFile()) checkDocument(join(dir, name))
   }
+}
+
+// SKILL.md is the router every agent enters through, and it carries front-matter on a different
+// schema, so checkDocument would only produce noise about fields it is not meant to have. Its YAML
+// still has to parse: a skill whose front-matter a loader cannot read is a knowledge base nobody
+// reaches.
+const skillPath = join(ROOT, 'skills/cv-ats/SKILL.md')
+if (existsSync(skillPath)) {
+  checkFrontMatterYaml('skills/cv-ats/SKILL.md', readFileSync(skillPath, 'utf8'))
 }
 
 // Coverage against the manifest: what has not been written yet.

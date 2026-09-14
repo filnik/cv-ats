@@ -5,7 +5,8 @@ category: references
 summary: How to prove your file parses — the free command-line check, the real-parser tests, and what each paid checker actually measures
 read_when:
   - "how do I check my resume is ATS friendly before I send it"
-  - "is Jobscan worth paying for" / "what does my match score actually mean"
+  - "is Jobscan worth paying for"
+  - "what does my match score actually mean"
   - "is there a free ATS resume checker that isn't a scam"
   - "how do I test whether my PDF parses correctly"
   - "the recruiter said my resume came through blank — how do I check my own file"

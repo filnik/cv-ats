@@ -50,8 +50,10 @@ id:            # stable, unique: gd-NN | pat-<slug> | ref-<slug>
 title:         # must match the H1 exactly
 category:      # guides | patterns | references
 summary:       # one sentence, <= 140 chars, no trailing period
-read_when:     # 3-7 items. The LITERAL words a user types, not concepts.
+read_when:     # 3-12 items. The LITERAL words a user types, not concepts.
                # "my resume never gets past the first screen", not "screening optimisation"
+               # ONE trigger per line. Two phrasings joined by "/" on a single line is invalid
+               # YAML — a quoted scalar ends at its closing quote — and the gate rejects it.
 not_this_file: # 1-2 nearest neighbours it is confused with, as "path — why you want that instead"
 markets:       # subset of [global, us, uk, ie, eu, dach, it, au] — where the advice applies
 ats:           # [] or the vendors this document makes claims about: workday, greenhouse, lever,

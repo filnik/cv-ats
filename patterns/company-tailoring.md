@@ -4,7 +4,8 @@ title: "Tailoring to a Specific Employer"
 category: patterns
 summary: Read the employer's published rubric and answer it in its own vocabulary — what that changes, and where it turns into mimicry
 read_when:
-  - "how do I tailor my CV for Amazon" / "resume for the leadership principles"
+  - "how do I tailor my CV for Amazon"
+  - "resume for the leadership principles"
   - "should I put the company's values in my resume"
   - "I read their careers page and I don't know what to actually change"
   - "is it worth writing a different resume for every single company"

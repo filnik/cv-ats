@@ -4,10 +4,14 @@ title: "Action Verbs and Banned Phrases"
 category: references
 summary: The merged verb list organised by what each verb claims, and the phrases a skimmer, a ranking model and a Boolean query all discount
 read_when:
-  - "what verb should I start my bullets with" / "I keep writing 'responsible for'"
-  - "is 'spearheaded' too much" / "can I say I led it if I didn't really lead it"
-  - "my resume sounds like ChatGPT wrote it" / "will they think I used AI"
-  - "recruiters never find me" / "my headline says open to work and nothing happens"
+  - "what verb should I start my bullets with"
+  - "I keep writing 'responsible for'"
+  - "is 'spearheaded' too much"
+  - "can I say I led it if I didn't really lead it"
+  - "my resume sounds like ChatGPT wrote it"
+  - "will they think I used AI"
+  - "recruiters never find me"
+  - "my headline says open to work and nothing happens"
   - "which words should never go on a resume"
   - "my official job title is made up, what do I write instead"
 not_this_file:

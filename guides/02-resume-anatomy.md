@@ -6,10 +6,12 @@ summary: What each section is for, what order the sections go in, how far back t
 read_when:
   - "what order should the sections be in on my resume"
   - "should education go above or below my work experience"
-  - "how far back should my resume go" / "do I still list a job from 2009"
+  - "how far back should my resume go"
+  - "do I still list a job from 2009"
   - "how do I show a promotion at the same company"
   - "should the skills section go at the top or the bottom"
-  - "do I still need an objective statement" / "what do I cut to make it fit"
+  - "do I still need an objective statement"
+  - "what do I cut to make it fit"
   - "is the one-page rule real"
 not_this_file:
   - "guides/03-the-top-third.md — the headline and summary specifically, which is where the reader's attention actually lands"

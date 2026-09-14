@@ -4,12 +4,17 @@ title: "Parsing Rules: What Breaks a Resume Parser"
 category: references
 summary: The testable rules that decide whether a resume becomes a searchable record, built on published parser quality codes
 read_when:
-  - "the ATS filled in the wrong dates" / "the autofill got my job titles backwards"
-  - "should my resume be one column or two" / "can ATS read tables"
+  - "the ATS filled in the wrong dates"
+  - "the autofill got my job titles backwards"
+  - "should my resume be one column or two"
+  - "can ATS read tables"
   - "PDF or Word — which one do I send"
-  - "my contact details disappeared" / "the recruiter said my resume came through blank"
-  - "does the font matter" / "can I use icons for my email and phone"
-  - "how should I write the dates" / "MM/YYYY or Jan 2021"
+  - "my contact details disappeared"
+  - "the recruiter said my resume came through blank"
+  - "does the font matter"
+  - "can I use icons for my email and phone"
+  - "how should I write the dates"
+  - "MM/YYYY or Jan 2021"
 not_this_file:
   - "references/verification-toolkit.md — how to run the checks that prove your file obeys these rules"
   - "references/ats-catalog.md — which system uses which parser, and what each one does with the output"

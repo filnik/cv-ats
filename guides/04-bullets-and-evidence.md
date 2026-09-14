@@ -5,7 +5,8 @@ category: guides
 summary: Five named bullet formulas are one formula; the metric catalogue that fills it, and an honest account of what the evidence supports
 read_when:
   - "how do I write bullet points that don't read like a job description"
-  - "what is the X-Y-Z formula" / "should I use CAR or STAR on a resume"
+  - "what is the X-Y-Z formula"
+  - "should I use CAR or STAR on a resume"
   - "which numbers am I supposed to put on my resume"
   - "all my bullets start with 'responsible for'"
   - "is it lying to estimate a number I never actually measured"

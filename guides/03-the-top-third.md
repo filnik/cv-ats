@@ -5,7 +5,8 @@ category: guides
 summary: The block above the first section heading — one object under four names, what physically goes there, and where attention really lands
 read_when:
   - "what do I actually put at the top of my resume"
-  - "should I write a summary or a headline" / "do I even need a summary"
+  - "should I write a summary or a headline"
+  - "do I even need a summary"
   - "is an objective statement still a thing"
   - "my summary says I'm a passionate engineer and I know that's bad"
   - "they only look at it for a few seconds so what goes first"

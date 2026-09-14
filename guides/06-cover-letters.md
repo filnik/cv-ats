@@ -4,7 +4,8 @@ title: Cover Letters
 category: guides
 summary: Dead as a screening artefact and alive as a persuasion one — when a letter is read, and the structure that earns the read
 read_when:
-  - "should I bother writing a cover letter" / "does anyone actually read them"
+  - "should I bother writing a cover letter"
+  - "does anyone actually read them"
   - "the application form says cover letter optional — do I upload one or not"
   - "how do I explain a two-year gap without it sounding like an excuse"
   - "I don't meet one of the requirements, should I still apply"

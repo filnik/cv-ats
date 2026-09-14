@@ -29,17 +29,19 @@ It replaces the mental model most of this advice is built on, and the rest of th
 ## Structure
 
 <!-- GENERATED:START -->
+**Stale risk:** 🔴 high — tied to vendor behaviour or a regulatory date, re-verify every 90 days · 🟠 medium — every 180 days · 🟢 low — conceptual, re-verify when the evidence base changes. Dates are in [`resource-index.md`](resource-index.md).
+
 ### Guides
 
 | File | Description | Stale | Lines |
 |---|---|---|---|
-| [How Resume Screening Actually Works](guides/01-how-screening-actually-works.md) | The working model — passing through an ATS is not being rejected by one, and four gates decide what happens to your application | 🔴 | 484 |
-| [Resume Anatomy: Sections, Order and Length](guides/02-resume-anatomy.md) | What each section is for, what order the sections go in, how far back to go, and what to delete outright | 🟢 | 595 |
-| [The Top Third: Headline, Summary and Value Proposition](guides/03-the-top-third.md) | The block above the first section heading — one object under four names, what physically goes there, and where attention really lands | 🟢 | 505 |
-| [Bullets: Writing Evidence a Machine and a Human Both Accept](guides/04-bullets-and-evidence.md) | Five named bullet formulas are one formula; the metric catalogue that fills it, and an honest account of what the evidence supports | 🟠 | 493 |
+| [How Resume Screening Actually Works](guides/01-how-screening-actually-works.md) | The working model — passing through an ATS is not being rejected by one, and four gates decide what happens to your application | 🔴 | 485 |
+| [Resume Anatomy: Sections, Order and Length](guides/02-resume-anatomy.md) | What each section is for, what order the sections go in, how far back to go, and what to delete outright | 🟢 | 597 |
+| [The Top Third: Headline, Summary and Value Proposition](guides/03-the-top-third.md) | The block above the first section heading — one object under four names, what physically goes there, and where attention really lands | 🟢 | 506 |
+| [Bullets: Writing Evidence a Machine and a Human Both Accept](guides/04-bullets-and-evidence.md) | Five named bullet formulas are one formula; the metric catalogue that fills it, and an honest account of what the evidence supports | 🟠 | 494 |
 | [Keywords, Search and Tailoring](guides/05-keywords-and-tailoring.md) | Keywords buy retrievability, not a score — how recruiters actually search, and how to tailor a resume in ten minutes | 🔴 | 488 |
-| [Cover Letters](guides/06-cover-letters.md) | Dead as a screening artefact and alive as a persuasion one — when a letter is read, and the structure that earns the read | 🟠 | 447 |
-| [LinkedIn as a Parallel Channel](guides/07-linkedin.md) | Why being sourced beats applying, and the documented filters — Skills, location, spotlights — that decide whether you are findable at all | 🔴 | 482 |
+| [Cover Letters](guides/06-cover-letters.md) | Dead as a screening artefact and alive as a persuasion one — when a letter is read, and the structure that earns the read | 🟠 | 448 |
+| [LinkedIn as a Parallel Channel](guides/07-linkedin.md) | Why being sourced beats applying, and the documented filters — Skills, location, spotlights — that decide whether you are findable at all | 🔴 | 484 |
 
 ### Patterns
 
@@ -47,7 +49,7 @@ It replaces the mental model most of this advice is built on, and the rest of th
 |---|---|---|---|
 | [The Brag Document](patterns/brag-document.md) | Record outcomes with their numbers as they happen, so every future resume, review and interview story is already written | 🟢 | 357 |
 | [Gaps, Career Changes and Non-Linear Histories](patterns/career-gaps-and-changes.md) | Gaps, career changes, contract stacking and overqualification handled by removing the ambiguity rather than hiding the history | 🟢 | 472 |
-| [Tailoring to a Specific Employer](patterns/company-tailoring.md) | Read the employer's published rubric and answer it in its own vocabulary — what that changes, and where it turns into mimicry | 🟠 | 346 |
+| [Tailoring to a Specific Employer](patterns/company-tailoring.md) | Read the employer's published rubric and answer it in its own vocabulary — what that changes, and where it turns into mimicry | 🟠 | 347 |
 | [Quantifying When You Have No Numbers](patterns/quantifying-without-numbers.md) | Triage the missing number as recoverable, confidential or never measured, then use scale, duration, constraint and the counterfactual | 🟢 | 483 |
 | [What Changes by Seniority](patterns/seniority-ladder.md) | Each rung needs a different document, not a longer one — what to demonstrate at junior, mid, senior, staff and manager | 🟢 | 562 |
 | [The Two-Document Strategy](patterns/two-document-strategy.md) | Keep a parser-safe file for portals and a designed file for humans, and keep them from disagreeing about the facts | 🟢 | 396 |
@@ -56,21 +58,21 @@ It replaces the mental model most of this advice is built on, and the rest of th
 
 | File | Description | Stale | Lines |
 |---|---|---|---|
-| [Action Verbs and Banned Phrases](references/action-verbs.md) | The merged verb list organised by what each verb claims, and the phrases a skimmer, a ranking model and a Boolean query all discount | 🟢 | 346 |
-| [ATS Catalogue: What Each System Actually Does](references/ats-catalog.md) | Vendor by vendor from primary documentation — what happens to your file, what must be retyped, what can auto-reject, what the AI does | 🔴 | 499 |
-| [Evidence and Myths: A Claim-by-Claim Audit](references/evidence-and-myths.md) | Every contested claim in resume advice with a verdict, a traced origin, and an honest statement of what is not known | 🔴 | 581 |
-| [Market Conventions and Legal Context](references/market-conventions.md) | Length, photographs, personal details and automated-screening law, resolved by market instead of argued as if one answer fits everyone | 🔴 | 524 |
-| [Parsing Rules: What Breaks a Resume Parser](references/parsing-rules.md) | The testable rules that decide whether a resume becomes a searchable record, built on published parser quality codes | 🟠 | 409 |
-| [Verification Toolkit: Testing a Resume Before Sending It](references/verification-toolkit.md) | How to prove your file parses — the free command-line check, the real-parser tests, and what each paid checker actually measures | 🔴 | 523 |
+| [Action Verbs and Banned Phrases](references/action-verbs.md) | The merged verb list organised by what each verb claims, and the phrases a skimmer, a ranking model and a Boolean query all discount | 🟢 | 350 |
+| [ATS Catalogue: What Each System Actually Does](references/ats-catalog.md) | Vendor by vendor from primary documentation — what happens to your file, what must be retyped, what can auto-reject, what the AI does | 🔴 | 503 |
+| [Evidence and Myths: A Claim-by-Claim Audit](references/evidence-and-myths.md) | Every contested claim in resume advice with a verdict, a traced origin, and an honest statement of what is not known | 🔴 | 582 |
+| [Market Conventions and Legal Context](references/market-conventions.md) | Length, photographs, personal details and automated-screening law, resolved by market instead of argued as if one answer fits everyone | 🔴 | 527 |
+| [Parsing Rules: What Breaks a Resume Parser](references/parsing-rules.md) | The testable rules that decide whether a resume becomes a searchable record, built on published parser quality codes | 🟠 | 414 |
+| [Verification Toolkit: Testing a Resume Before Sending It](references/verification-toolkit.md) | How to prove your file parses — the free command-line check, the real-parser tests, and what each paid checker actually measures | 🔴 | 524 |
 
 ### Totals
 
 | Category | Files | Lines |
 |---|---|---|
-| guides | 7 | 3494 |
-| patterns | 6 | 2616 |
-| references | 6 | 2882 |
-| **Total** | **19** | **8992** |
+| guides | 7 | 3502 |
+| patterns | 6 | 2617 |
+| references | 6 | 2900 |
+| **Total** | **19** | **9019** |
 <!-- GENERATED:END -->
 
 ## Verifying your own resume
